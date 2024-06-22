@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Vanilla Arsenal</name>
+	<author>DetVisor</author>
+	<supportedVersions>
+		<li>1.5</li>
+	</supportedVersions>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+		<li>brrainz.harmony</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+		<li>smartkar.athenaframework</li>
+	</loadAfter>
+	<packageId>det.vanillaarsenal</packageId>
+	<description>Provides a bunch of industrial and spacer weapons to fit small gaps in the game's default weapon progression.</description>
+</ModMetaData>
