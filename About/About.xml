@@ -9,10 +9,12 @@
 		<li>Ludeon.RimWorld</li>
 		<li>Ludeon.RimWorld.Royalty</li>
 		<li>Ludeon.RimWorld.Biotech</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Ludeon.RimWorld.Anomaly</li>
 		<li>brrainz.harmony</li>
 		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
 		<li>smartkar.athenaframework</li>
 	</loadAfter>
 	<packageId>det.vanillaarsenal</packageId>
-	<description>Provides a bunch of industrial and spacer weapons to fit small gaps in the game's default weapon progression.</description>
+	<description>Provides a bunch of industrial guns to fit in and expand small gaps in the game's default weapon progression.</description>
 </ModMetaData>

@@ -59,7 +59,7 @@
   <ThingDef ParentName="BaseHumanMakeableGun">
     <defName>DV_Gun_BurstPistol</defName>
     <label>burst pistol</label>
-    <description>A compact gas-operated automatic pistol. Short range and light, it can fire short bursts with good accuracy and little recoil.</description>
+    <description>A compact automatic pistol. Short range and light, it can fire short bursts with good accuracy and little recoil.</description>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/PDW</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -131,7 +131,7 @@
   <ThingDef ParentName="BaseHumanMakeableGun">
     <defName>DV_Gun_DMR</defName>
     <label>DMR</label>
-    <description>A bolt-action marksman rifle commonly used for hunting or protecting fields. It has a scope which enables a longer range and good precision, but it must be fired slower to not lose accuracy.</description>
+    <description>A semi-automatic marksman rifle commonly used for hunting or protecting fields. It has a scope which enables a longer range and good precision, but it must be fired slower to not lose accuracy.</description>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/DMR</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -200,7 +200,7 @@
   <ThingDef ParentName="BaseHumanMakeableGun">
     <defName>DV_Gun_CombatShotgun</defName>
     <label>combat shotgun</label>
-    <description>A fully-automatic gas regulated shotgun, which can be quickly fired thanks to a series of revolving magazines. Good rangeand a higher fire rate makes it very deadly.</description>
+    <description>An automatic gas regulated shotgun, which can be quickly fired thanks to a series of revolving magazines. Good rangeand a higher fire rate makes it very deadly.</description>
     <possessionCount>1</possessionCount>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/CombatShotgun</texPath>
@@ -228,6 +228,7 @@
       <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
       <skillRequirements>
         <Crafting>6</Crafting>
       </skillRequirements>
@@ -278,7 +279,7 @@
     </graphicData>
     <soundInteract>Interact_Rifle</soundInteract>
     <recipeMaker>
-      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
       <skillRequirements>
         <Crafting>6</Crafting>
       </skillRequirements>
