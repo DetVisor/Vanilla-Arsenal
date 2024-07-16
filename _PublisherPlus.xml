@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <Excluded>
+    <exclude>.git</exclude>
+    <exclude>About\img1.png</exclude>
+    <exclude>About\img2.png</exclude>
+    <exclude>About\img3.png</exclude>
+    <exclude>About\SpecialOccasions.png</exclude>
+    <exclude>Previews</exclude>
+    <exclude>Sounds\Things\PhaseSounds</exclude>
+    <exclude>Textures\Things\Item\Equipment\WeaponRanged\AntiMechRifle.png</exclude>
+  </Excluded>
+</Configuration>

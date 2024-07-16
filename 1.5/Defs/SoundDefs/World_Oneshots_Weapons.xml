@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?><Defs>
 
+	<SoundDef>
+		<defName>DV_Explosion_Aerosol</defName>  
+		<context>MapOnly</context> 
+		<maxSimultaneous>1</maxSimultaneous>  
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Folder">
+				<clipFolderPath>Weapon/Artillery/Mortar_Explode_Dry</clipFolderPath>
+			  </li>
+			</grains>      
+			<volumeRange>20~35</volumeRange>      
+			<pitchRange>0.8516304~1.254348</pitchRange>
+		  </li>
+		</subSounds>
+	  </SoundDef>
+
 <SoundDef>
     <defName>DV_Shot_LeverShotgun</defName>  
     <context>MapOnly</context>  

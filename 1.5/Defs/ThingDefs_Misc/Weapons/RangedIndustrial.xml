@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>DV_Bullet_Thermorifle</defName>
+    <label>thermobaric bullet</label>
+    <thingClass>Projectile_Explosive</thingClass>
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>DV_Damage_ThermobaricExplosion</damageDef>
+      <explosionRadius>1.5</explosionRadius>
+      <damageAmountBase>19</damageAmountBase>
+      <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+      <preExplosionSpawnChance>0.1</preExplosionSpawnChance>
+      <bulletChanceToStartFire>0.6</bulletChanceToStartFire>
+      <stoppingPower>1.5</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+  
+  <ThingDef Name="DV_BaseStunGrenadeProjectile" ParentName="BaseGrenadeProjectile" Abstract="True">
+    <thingClass>Projectile_Explosive</thingClass>
+    <graphicData>
+      <texPath>Projectiles/Projectile_StunGrenade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <explosionRadius>1.9</explosionRadius>
+      <damageDef>Stun</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <!-- Use default damage from explosion def -->
+      <explosionDelay>110</explosionDelay>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="DV_BaseStunGrenadeProjectile">
+    <defName>DV_Proj_GrenadeStun</defName>
+    <label>stun grenade</label>
+  </ThingDef>
+  
+
   <ThingDef ParentName="BaseBullet">
     <defName>DV_Bullet_LightCarbine</defName>
     <label>light carbine bullet</label>
@@ -38,6 +82,7 @@
     <projectile>
       <damageDef>Bullet</damageDef>
       <damageAmountBase>11</damageAmountBase>
+      <armorPenetrationBase>0.30</armorPenetrationBase>
       <speed>70</speed>
     </projectile>
   </ThingDef>
@@ -219,13 +264,13 @@
       <Mass>3.4</Mass>
       <AccuracyTouch>0.77</AccuracyTouch>
       <AccuracyShort>0.82</AccuracyShort>
-      <AccuracyMedium>0.82</AccuracyMedium>
-      <AccuracyLong>0.70</AccuracyLong>
-      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
+      <RangedWeapon_Cooldown>1.6</RangedWeapon_Cooldown>
     </statBases>
     <costList>
       <Steel>60</Steel>
-      <ComponentIndustrial>3</ComponentIndustrial>
+      <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <researchPrerequisite>GasOperation</researchPrerequisite>
@@ -240,7 +285,7 @@
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>Bullet_Shotgun</defaultProjectile>
         <warmupTime>1.1</warmupTime>
-        <range>22.9</range>
+        <range>20.9</range>
         <burstShotCount>4</burstShotCount>
         <ticksBetweenBurstShots>18</ticksBetweenBurstShots>
         <soundCast>DV_Shot_CombatShotgun</soundCast>
@@ -476,4 +521,137 @@
       </li>
     </tools>
   </ThingDef>
+
+  <!-- "Special Occasions" update -->
+
+  <ThingDef ParentName="BaseMakeableGrenade">
+    <defName>DV_Weapon_StunGrenades</defName>
+    <label>stun grenades</label>
+    <description>Non-lethal explosive devices for stunning. After being thrown, they detonate, producing a loud deafening noise and an extremely bright blinding light which stuns targets.</description>
+    <recipeMaker>
+      <researchPrerequisite>Machining</researchPrerequisite>
+    </recipeMaker>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/StunGrenades</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.3</uiIconScale>
+    <soundInteract>Interact_Grenade</soundInteract>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <Mass>1</Mass>
+      <RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
+      <WorkToMake>11400</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>60</Steel>
+      <Silver>30</Silver>
+    </costList>
+    <thingCategories>
+      <li>Grenades</li>
+    </thingCategories>
+    <smeltable>true</smeltable>
+    <verbs>
+      <li>
+        <label>throw stun grenade</label>
+        <verbClass>Verb_LaunchProjectile</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <range>12.9</range>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <warmupTime>3.2</warmupTime>
+        <noiseRadius>2</noiseRadius>
+        <ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+        <soundCast>ThrowGrenade</soundCast>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>DV_Proj_GrenadeStun</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.66</explosiveRadius>
+        <explosiveDamageType>Stun</explosiveDamageType>
+        <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>DV_Gun_ThermoRifle</defName>
+    <label>thermorifle</label>
+    <description>A heavy duty sniper rifle loaded with thermobaric ammunition. A large powered scope hones in on possible targets allowing for better precision. The high-caliber cartridges disperse flammable aerosolized gas upon impact which explodes causing intense pressure waves and subsequently rarefaction. Thermobaric weapons are considered the best option against mechanoids, and were widely employed during the mechanoid wars.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Thermorifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <equippedDistanceOffset>0.2</equippedDistanceOffset>
+    <equippedAngleOffset>45</equippedAngleOffset>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>9</Crafting>
+      </skillRequirements>
+      <displayPriority>420</displayPriority>
+    </recipeMaker>
+    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+    <statBases>
+      <WorkToMake>52000</WorkToMake>
+      <Mass>6</Mass>
+      <AccuracyTouch>0.50</AccuracyTouch>
+      <AccuracyShort>0.69</AccuracyShort>
+      <AccuracyMedium>0.79</AccuracyMedium>
+      <AccuracyLong>0.90</AccuracyLong>
+      <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>12</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.10</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DV_Bullet_Thermorifle</defaultProjectile>
+        <warmupTime>3.4</warmupTime>
+        <range>49.9</range>
+        <forcedMissRadius>0.9</forcedMissRadius>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>14</ticksBetweenBurstShots>
+        <soundCast>Shot_TurretSniper</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>10</muzzleFlashScale>
+      </li>
+    </verbs>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
 </Defs>
