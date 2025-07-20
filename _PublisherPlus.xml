@@ -8,6 +8,7 @@
     <exclude>About\SpecialOccasions.png</exclude>
     <exclude>Previews</exclude>
     <exclude>Sounds\Things\PhaseSounds</exclude>
+    <exclude>Sounds\Things\WattBlast.wav</exclude>
     <exclude>Textures\Things\Item\Equipment\WeaponRanged\AntiMechRifle.png</exclude>
   </Excluded>
 </Configuration>
