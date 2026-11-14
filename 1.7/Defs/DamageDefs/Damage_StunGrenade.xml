@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <DamageDef>
+        <defName>DV_Damage_Dazzled</defName>
+        <label>dazzle</label>
+        <workerClass>DamageWorker_Extinguish</workerClass>
+        <canInterruptJobs>false</canInterruptJobs>
+        <makesBlood>false</makesBlood>
+        <defaultDamage>999999</defaultDamage>
+        <hediff>DV_Dazzled</hediff>
+        <explosionCellFleck>BlastExtinguisher</explosionCellFleck>
+        <explosionColorEdge>(1, 1, 1, 0.05)</explosionColorEdge>
+        <soundExplosion>Explosion_Stun</soundExplosion>
+        <harmsHealth>false</harmsHealth>
+        <combatLogRules>Damage_Extinguish</combatLogRules>
+        <consideredHelpful>true</consideredHelpful>
+    </DamageDef>
+
+    <HediffDef>
+        <defName>DV_Dazzled</defName>
+        <description>Dazzled.</description>
+        <label>dazzled</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0.6</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Manipulation</capacity>
+                        <postFactor>0.6</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Sight</capacity>
+                        <postFactor>0.6</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_Disorientation">
+                <wanderMtbHours>0.0004</wanderMtbHours>
+                <singleWanderDurationTicks>250</singleWanderDurationTicks>
+                <wanderRadius>4</wanderRadius>
+            </li>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>1500</disappearsAfterTicks>
+                <showRemainingTime>true</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_Effecter">
+                <stateEffecter>Dazzled_Effect</stateEffecter>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

@@ -264,7 +264,7 @@
   <ThingDef ParentName="BaseHumanMakeableGun">
     <defName>DV_Gun_CombatShotgun</defName>
     <label>combat shotgun</label>
-    <description>An automatic gas regulated shotgun, which can be quickly fired thanks to a series of revolving magazines. Good rangeand a higher fire rate makes it very deadly.</description>
+    <description>An automatic gas regulated shotgun, which can be quickly fired thanks to a series of revolving magazines. Good range and a higher fire rate makes it very deadly.</description>
     <possessionCount>1</possessionCount>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/CombatShotgun</texPath>

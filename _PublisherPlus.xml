@@ -2,6 +2,7 @@
 <Configuration>
   <Excluded>
     <exclude>.git</exclude>
+    <exclude>About\Cops&amp;Robbers.png</exclude>
     <exclude>About\img1.png</exclude>
     <exclude>About\img2.png</exclude>
     <exclude>About\img3.png</exclude>
